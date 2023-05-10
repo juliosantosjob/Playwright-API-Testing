@@ -2,14 +2,14 @@ import { test, expect } from '@playwright/test';
 
 require('dotenv').config();
 
-const URL_BASE = process.env.URL_BASE;
+const BASE_URL = process.env.BASE_URL;
 const EMAIL = process.env.EMAIL_LOGIN;
 const PASSWD = process.env.PASSWORD_LOGIN;
 
 test.describe('Login Reqres', () => {
 
   test('Login successful', async ({ request }) => {
-    const response = await request.post(URL_BASE + '/login', {
+    const response = await request.post(BASE_URL + '/login', {
       data: {
         email: EMAIL,
         password: PASSWD,
@@ -22,7 +22,7 @@ test.describe('Login Reqres', () => {
   });
 
   test('Login email blank', async ({ request }) => {
-    const response = await request.post(URL_BASE + '/login', {
+    const response = await request.post(BASE_URL + '/login', {
       data: {
         email: '',
         password: PASSWD,
@@ -35,7 +35,7 @@ test.describe('Login Reqres', () => {
   });
 
   test('Login password blank', async ({ request }) => {
-    const response = await request.post(URL_BASE + '/login', {
+    const response = await request.post(BASE_URL + '/login', {
       data: {
         email: EMAIL,
         password: '',
@@ -48,7 +48,7 @@ test.describe('Login Reqres', () => {
   });
 
   test('Login user net register', async ({ request }) => {
-    const response = await request.post(URL_BASE + '/login', {
+    const response = await request.post(BASE_URL + '/login', {
       data: {
         email: 'user1312@gmail.com',
         password: 'test123',

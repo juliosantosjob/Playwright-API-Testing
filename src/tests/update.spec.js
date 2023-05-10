@@ -3,7 +3,7 @@ import date from '../support/date';
 
 require('dotenv').config();
 
-const URL_BASE = process.env.URL_BASE;
+const BASE_URL = process.env.BASE_URL;
 const NAME = process.env.NAME_UPDATE;
 const JOB = process.env.JOB_UPDATE;
 const DATE = date.getCurrentDate();
@@ -11,7 +11,7 @@ const DATE = date.getCurrentDate();
 test.describe('Update Reqres', () => {
 
   test('Update user', async ({ request }) => {
-    const response = await request.put(URL_BASE + '/users/2', {
+    const response = await request.put(BASE_URL + '/users/2', {
       data: {
         email: NAME,
         password: JOB
