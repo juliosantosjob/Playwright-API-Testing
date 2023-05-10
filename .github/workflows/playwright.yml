@@ -38,11 +38,9 @@ jobs:
           JOB_UPDATE: ${{ secrets.JOB_UPDATE }}
         run: npm run test
 
-      - name: Deploy to GitHub Pages
+      - uses: actions/upload-artifact@v3
         if: always()
-        uses: crazy-max/ghaction-github-pages@v3
         with:
-          target_branch: gh-pages
-          build_dir: ./playwright-report
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
