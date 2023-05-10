@@ -1,4 +1,4 @@
-name: Pipe Playwright
+name: Pipe
 
 on:
   push:
@@ -10,7 +10,7 @@ on:
   - cron: "0 12,20 * * 1-5"
 
 jobs:
-  tests-e2e:
+  tests-api:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,6 +30,12 @@ jobs:
       - name: Run Playwright tests
         env:
           BASE_URL: ${{ secrets.BASE_URL }}
+          EMAIL_LOGIN: ${{ secrets.EMAIL_LOGIN }}
+          PASSWORD_LOGIN: ${{ secrets.PASSWORD_LOGIN }}
+          EMAIL_REGIST: ${{ secrets.EMAIL_REGIST }}
+          PASSWORD_REGIST: ${{ secrets.PASSWORD_REGIST }}
+          NAME_UPDATE: ${{ secrets.NAME_UPDATE }}
+          JOB_UPDATE: ${{ secrets.JOB_UPDATE }}
         run: npm run test
 
       - uses: actions/upload-artifact@v3
