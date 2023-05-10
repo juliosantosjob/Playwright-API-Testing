@@ -4,7 +4,7 @@
   "description": "Training test backend using playwright",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test --headed"
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "",
