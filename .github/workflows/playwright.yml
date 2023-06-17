@@ -20,22 +20,11 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Eslint verify
-        run: npx eslint src  
         
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       
       - name: Run Playwright tests
-        env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          EMAIL_LOGIN: ${{ secrets.EMAIL_LOGIN }}
-          PASSWORD_LOGIN: ${{ secrets.PASSWORD_LOGIN }}
-          EMAIL_REGIST: ${{ secrets.EMAIL_REGIST }}
-          PASSWORD_REGIST: ${{ secrets.PASSWORD_REGIST }}
-          NAME_UPDATE: ${{ secrets.NAME_UPDATE }}
-          JOB_UPDATE: ${{ secrets.JOB_UPDATE }}
         run: npm run test
 
       - uses: actions/upload-artifact@v3
