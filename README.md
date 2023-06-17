@@ -1,11 +1,11 @@
-# Mobile-Codeceptjs
-
+# Playwright-API-Testing
 Frameworks & tools:
 - Javascript/Node
 - Playwright
 - GitHub Actions
 - GitHub Pages
 
+  Site test executed: https://reqres.in
  ##
  ###
 <div>

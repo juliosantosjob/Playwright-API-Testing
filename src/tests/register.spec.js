@@ -1,10 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-require('dotenv').config();
-
-const BASE_URL = process.env.BASE_URL;
-const EMAIL = process.env.EMAIL_REGIST;
-const PASSWD = process.env.PASSWORD_REGIST;
+const BASE_URL = 'https://reqres.in/api';
+const EMAIL = 'eve.holt@reqres.in';
+const PASSWD = 'cityslicka';
 
 test.describe('Register Reqres', () => {
 

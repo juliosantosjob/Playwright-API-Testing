@@ -1,11 +1,9 @@
 import { test, expect } from '@playwright/test';
 import date from '../support/date';
 
-require('dotenv').config();
-
-const BASE_URL = process.env.BASE_URL;
-const NAME = process.env.NAME_UPDATE;
-const JOB = process.env.JOB_UPDATE;
+const BASE_URL = 'https://reqres.in/api';
+const NAME = 'morpheus';
+const JOB = 'zion resident';
 const DATE = date.getCurrentDate();
 
 test.describe('Update Reqres', () => {
