@@ -7,6 +7,13 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
   reporter: [['html', { open: 'never' }]],
+  timeout: 3000,
+
+  use: {
+    extraHTTPHeaders: {
+      'Accept': 'application/json',
+    },
+  },
 
   projects: [
     {

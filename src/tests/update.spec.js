@@ -9,6 +9,7 @@ const DATE = date.getCurrentDate();
 test.describe('Update Reqres', () => {
 
   test('Update user', async ({ request }) => {
+
     const response = await request.put(BASE_URL + '/users/2', {
       data: {
         email: NAME,

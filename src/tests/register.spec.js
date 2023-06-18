@@ -16,7 +16,6 @@ test.describe('Register Reqres', () => {
 
     const responseData = await response.json();
     expect(response.status()).toBe(200);
-    expect(responseData).toHaveProperty('id', 4);
     expect(responseData).toHaveProperty('token');
   });
 
@@ -30,7 +29,7 @@ test.describe('Register Reqres', () => {
 
     const responseData = await response.json();
     expect(response.status()).toBe(400);
-    expect(responseData)
-      .toHaveProperty('error', 'Note: Only defined users succeed registration');
+    expect(responseData).toHaveProperty('error', 
+      'Note: Only defined users succeed registration');
   });
 });

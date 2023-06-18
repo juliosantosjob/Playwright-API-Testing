@@ -45,7 +45,7 @@ test.describe('Login Reqres', () => {
     expect(responseData).toHaveProperty('error', 'Missing password');
   });
 
-  test('Login user net register', async ({ request }) => {
+  test('Login user not found', async ({ request }) => {
     const response = await request.post(BASE_URL + '/login', {
       data: {
         email: 'user1312@gmail.com',
