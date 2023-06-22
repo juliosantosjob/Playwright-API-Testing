@@ -1,16 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = 'https://reqres.in/api';
-const EMAIL = 'eve.holt@reqres.in';
-const PASSWD = 'cityslicka';
+const email = 'eve.holt@reqres.in';
+const password = 'cityslicka';
 
 test.describe('Login Reqres', () => {
 
-  test('Login successful', async ({ request }) => {
-    const response = await request.post(BASE_URL + '/login', {
+  test('Login successful', async ({ request, baseURL }) => {
+    const response = await request.post(baseURL + '/login', {
       data: {
-        email: EMAIL,
-        password: PASSWD,
+        email: email,
+        password: password,
       }
     });
 
@@ -19,11 +18,11 @@ test.describe('Login Reqres', () => {
     expect(responseData).toHaveProperty('token');
   });
 
-  test('Login email blank', async ({ request }) => {
-    const response = await request.post(BASE_URL + '/login', {
+  test('Login email blank', async ({ request, baseURL }) => {
+    const response = await request.post(baseURL + '/login', {
       data: {
         email: '',
-        password: PASSWD,
+        password: password,
       }
     });
 
@@ -32,10 +31,10 @@ test.describe('Login Reqres', () => {
     expect(responseData).toHaveProperty('error', 'Missing email or username');
   });
 
-  test('Login password blank', async ({ request }) => {
-    const response = await request.post(BASE_URL + '/login', {
+  test('Login password blank', async ({ request, baseURL }) => {
+    const response = await request.post(baseURL + '/login', {
       data: {
-        email: EMAIL,
+        email: email,
         password: '',
       }
     });
@@ -45,8 +44,8 @@ test.describe('Login Reqres', () => {
     expect(responseData).toHaveProperty('error', 'Missing password');
   });
 
-  test('Login user not found', async ({ request }) => {
-    const response = await request.post(BASE_URL + '/login', {
+  test('Login user not found', async ({ request, baseURL }) => {
+    const response = await request.post(baseURL + '/login', {
       data: {
         email: 'user1312@gmail.com',
         password: 'test123',

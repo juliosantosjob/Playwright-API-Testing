@@ -1,16 +1,15 @@
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = 'https://reqres.in/api';
-const EMAIL = 'eve.holt@reqres.in';
-const PASSWD = 'cityslicka';
+const email = 'eve.holt@reqres.in';
+const password = 'cityslicka';
 
 test.describe('Register Reqres', () => {
 
-  test('Register successful', async ({ request }) => {
-    const response = await request.post(BASE_URL + '/register', {
+  test('Register successful', async ({ request, baseURL }) => {
+    const response = await request.post(baseURL + '/register', {
       data: {
-        email: EMAIL,
-        password: PASSWD
+        email: email,
+        password: password
       }
     });
 
@@ -19,11 +18,11 @@ test.describe('Register Reqres', () => {
     expect(responseData).toHaveProperty('token');
   });
 
-  test('Register user not defined', async ({ request }) => {
-    const response = await request.post(BASE_URL + '/register', {
+  test('Register user not defined', async ({ request, baseURL }) => {
+    const response = await request.post(baseURL + '/register', {
       data: {
         email: 'user_123@gmail.com',
-        password: PASSWD
+        password: password
       }
     });
 

@@ -1,23 +1,21 @@
 import { test, expect } from '@playwright/test';
-import date from '../support/date';
+import hp from '../support/helpers';
 
-const BASE_URL = 'https://reqres.in/api';
-const NAME = 'morpheus';
-const JOB = 'zion resident';
-const DATE = date.getCurrentDate();
+const name = 'morpheus';
+const job = 'zion resident';
+const currentDate = hp.getCurrentDate();
 
 test.describe('Update Reqres', () => {
 
-  test('Update user', async ({ request }) => {
-
-    const response = await request.put(BASE_URL + '/users/2', {
+  test('Update user', async ({ request, baseURL }) => {
+    const response = await request.put(baseURL + '/users/2', {
       data: {
-        email: NAME,
-        password: JOB
+        email: name,
+        password: job
       }
     });
     const responseData = await response.json();
     expect(response.status()).toBe(200);
-    expect(responseData.updatedAt.substring(0, 10)).toEqual(DATE);
+    expect(responseData.updatedAt.substring(0, 10)).toEqual(currentDate);
   });
 });

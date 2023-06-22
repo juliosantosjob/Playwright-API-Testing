@@ -10,15 +10,13 @@ export default defineConfig({
   timeout: 3 * 1000,
 
   use: {
-    extraHTTPHeaders: {
-      'Accept': 'application/json',
-    },
+    baseURL: 'https://reqres.in/api'
   },
 
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'] }
     }
   ]
 });
