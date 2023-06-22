@@ -4,9 +4,8 @@ const email = 'eve.holt@reqres.in';
 const password = 'cityslicka';
 
 test.describe('Login Reqres', () => {
-
   test('Login successful', async ({ request, baseURL }) => {
-    const response = await request.post(baseURL + '/login', {
+    const response = await request.post(`${baseURL}/login`, {
       data: {
         email: email,
         password: password,
@@ -19,7 +18,7 @@ test.describe('Login Reqres', () => {
   });
 
   test('Login email blank', async ({ request, baseURL }) => {
-    const response = await request.post(baseURL + '/login', {
+    const response = await request.post(`${baseURL}/login`, {
       data: {
         email: '',
         password: password,
@@ -32,7 +31,7 @@ test.describe('Login Reqres', () => {
   });
 
   test('Login password blank', async ({ request, baseURL }) => {
-    const response = await request.post(baseURL + '/login', {
+    const response = await request.post(`${baseURL}/login`, {
       data: {
         email: email,
         password: '',
@@ -45,7 +44,7 @@ test.describe('Login Reqres', () => {
   });
 
   test('Login user not found', async ({ request, baseURL }) => {
-    const response = await request.post(baseURL + '/login', {
+    const response = await request.post(`${baseURL}/login`, {
       data: {
         email: 'user1312@gmail.com',
         password: 'test123',

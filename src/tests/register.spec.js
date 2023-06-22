@@ -4,9 +4,8 @@ const email = 'eve.holt@reqres.in';
 const password = 'cityslicka';
 
 test.describe('Register Reqres', () => {
-
   test('Register successful', async ({ request, baseURL }) => {
-    const response = await request.post(baseURL + '/register', {
+    const response = await request.post(`${baseURL}/register`, {
       data: {
         email: email,
         password: password
@@ -19,7 +18,7 @@ test.describe('Register Reqres', () => {
   });
 
   test('Register user not defined', async ({ request, baseURL }) => {
-    const response = await request.post(baseURL + '/register', {
+    const response = await request.post(`${baseURL}/register`, {
       data: {
         email: 'user_123@gmail.com',
         password: password

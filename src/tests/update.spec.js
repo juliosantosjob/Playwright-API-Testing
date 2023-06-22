@@ -6,9 +6,8 @@ const job = 'zion resident';
 const currentDate = hp.getCurrentDate();
 
 test.describe('Update Reqres', () => {
-
   test('Update user', async ({ request, baseURL }) => {
-    const response = await request.put(baseURL + '/users/2', {
+    const response = await request.put(`${baseURL}/users/2`, {
       data: {
         email: name,
         password: job
