@@ -5,7 +5,9 @@ Frameworks & tools:
 - GitHub Actions
 - GitHub Pages
 
-  Site test executed: https://reqres.in
+Executed test site: <a href='https://reqres.in'>Reqres</a><br>
+Last run report: <a href='https://juliosantosjob.github.io/Playwright-API-Testing/'>Playwright Test Report</a>
+
  ##
  ###
 <div>
